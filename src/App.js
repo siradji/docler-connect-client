@@ -5,6 +5,7 @@ import AppRoute from './components/global/AppRoute'
 
 const App = () => (
   <>
+    <GlobalStyle />
     <AppRoute />
   </>
 )
@@ -12,9 +13,9 @@ const App = () => (
 // Resets and global styling
 const GlobalStyle = createGlobalStyle`
 *{
-padding: 0;
-margin: 0;
-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body{
