@@ -1,0 +1,33 @@
+@import '../../template/layout.scss';
+
+.wrapper-chat {
+  height: 100vh;
+  margin: auto;
+
+  .inner-chat {
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+    @include desktop {
+      display: grid;
+      grid-template-columns: 1fr 4fr 7fr;
+      grid-template-areas: 'sidepane users chat';
+    }
+
+    .sidepane {
+      grid-area: sidepane;
+    }
+
+    .users {
+      grid-area: users;
+      @include mobile {
+        display: none;
+      }
+    }
+
+    .chat {
+      grid-area: chat;
+    }
+  }
+}

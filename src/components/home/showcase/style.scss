@@ -1,0 +1,24 @@
+@import '../../../template/layout.scss';
+
+.container {
+  width: 90%;
+  margin: auto;
+  h1 {
+    color: color(secondary);
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    @include mobile {
+      color: color(primary);
+      font-size: 3.5rem;
+    }
+  }
+
+  p {
+    font-weight: 100;
+    font-size: 2rem;
+    text-align: center;
+    @include mobile {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import './functions';
+@import './variables';
+@import './resets';
+@import './config';
+@import './mixins';
+// functions
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}

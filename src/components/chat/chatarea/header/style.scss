@@ -1,0 +1,8 @@
+@import '../../../../template//layout.scss';
+
+.wrapper-header {
+  @include mobile {
+    padding: 1rem;
+    border: none;
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../template/layout.scss';
+
+.bg-container {
+  background-color: color(secondary);
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 49% 100%, 48% 0);
+  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 49% 100%, 48% 0);
+  @include mobile {
+    -webkit-clip-path: circle(66.3% at 49% 19%);
+    clip-path: circle(66.3% at 49% 19%);
+  }
+}
+
+.wrapper-home {
+  overflow: hidden;
+  height: 100vh;
+  justify-content: center;
+  margin: auto;
+  z-index: 1;
+
+  @include mobile {
+    overflow: hidden;
+  }
+  @include desktop {
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-areas: 'showcase form';
+    width: 90%;
+  }
+  .showcase-container {
+    margin: 10rem auto;
+    grid-area: showcase;
+    height: fit-content;
+    @include mobile {
+      margin: 2rem auto;
+    }
+  }
+
+  .card {
+    background-color: color(primary);
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.1);
+    margin: auto;
+    height: fit-content;
+    grid-area: form;
+    margin: 10rem auto;
+    @include mobile {
+      margin: 2rem auto;
+      padding: 2rem 1.5rem;
+      width: 90%;
+    }
+    @include desktop {
+      width: 60%;
+      padding: 2rem 3.5rem;
+    }
+  }
+}

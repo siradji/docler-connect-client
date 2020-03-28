@@ -1,0 +1,20 @@
+@import '../../../template/layout.scss';
+
+.select {
+  color: inherit;
+  background: color(primary);
+  border: solid 0.1rem color(accent);
+  border-radius: 2rem;
+  font-size: 1rem;
+  margin: 1rem 0;
+  outline: none;
+  padding: 0.5rem 2.5rem;
+  width: 100%;
+
+  @include mobile {
+    height: 3rem;
+  }
+  @include desktop {
+    height: 5rem;
+  }
+}
