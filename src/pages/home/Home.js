@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 // core components
 import FormTitle from '../../components/home/FormTitle'
 import UserNameInput from '../../components/home/UserNameInput'

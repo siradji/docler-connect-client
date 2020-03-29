@@ -1,0 +1,8 @@
+@import '../../template/layout.scss';
+
+.wrapper-settings {
+  margin: auto;
+  @include mobile {
+    width: 90%;
+  }
+}

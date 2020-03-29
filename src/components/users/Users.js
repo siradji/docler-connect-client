@@ -1,7 +1,5 @@
 import React from 'react'
 
-const Users = () => {
-  return <div>users</div>
-}
+const Users = () => <div className="wrapper-users">users</div>
 
 export default Users

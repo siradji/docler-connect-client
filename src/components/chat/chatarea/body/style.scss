@@ -1,4 +1,11 @@
 @import '../../../../template/layout.scss';
-
-.wrapper-header {
+.wrapper-body {
+  overflow-y: auto;
+  @include mobile {
+    height: 36rem;
+    border-bottom: solid 2px;
+  }
+  @include desktop {
+    height: 35rem;
+  }
 }

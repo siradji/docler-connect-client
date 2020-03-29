@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Body = () => {
-  return <div className="wrapper-header"></div>
-}
+import './style.scss'
+
+const Body = () => <div className="wrapper-body">body</div>
 
 export default Body

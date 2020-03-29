@@ -1,9 +1,7 @@
 @import '../../template/layout.scss';
 
 .wrapper-chat {
-  height: 100vh;
-  margin: auto;
-
+  overflow: hidden;
   .inner-chat {
     @include mobile {
       display: flex;
@@ -28,6 +26,9 @@
 
     .chat {
       grid-area: chat;
+      margin: 0 8rem;
+      height: fit-content;
+      box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.1);
     }
   }
 }

@@ -8,20 +8,18 @@ import Header from './header'
 
 import './style.scss'
 
-const ChatArea = () => {
-  return (
-    <div className="wrapper-chatarea">
-      <div className="header-chatarea">
-        <Header />
-      </div>
-      <div className="body-chatarea">
-        <Body />
-      </div>
-      <div className="footer-chatarea">
-        <Footer />
-      </div>
+const ChatArea = () => (
+  <div className="wrapper-chatarea">
+    <div className="header-chatarea">
+      <Header roomName="Engineering" />
     </div>
-  )
-}
+    <div className="body-chatarea">
+      <Body />
+    </div>
+    <div className="footer-chatarea">
+      <Footer />
+    </div>
+  </div>
+)
 
 export default ChatArea

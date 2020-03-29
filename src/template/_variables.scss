@@ -3,7 +3,10 @@ $colors: (
   primary: #fff,
   secondary: #007bff,
   accent: #6c757d,
+  transparent: rgba(0, 0, 0, 0.5),
 );
+
+$light: lighten(#6c757d, 20%);
 
 $tablet: 769px;
 $desktop: 770px;

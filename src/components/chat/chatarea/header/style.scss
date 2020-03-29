@@ -1,8 +1,14 @@
 @import '../../../../template//layout.scss';
 
 .wrapper-header {
+  background-color: color(secondary);
+  @include desktop {
+    padding: 2rem 0;
+  }
+
   @include mobile {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     border: none;
+    margin: 0 0 0.5rem 0;
   }
 }

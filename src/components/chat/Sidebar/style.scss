@@ -1,12 +1,31 @@
 @import '../../../template/layout.scss';
 
 .wrapper-sidebar {
-  height: 100%;
   background-color: color(secondary);
   color: #fff;
 
   @include mobile {
-    padding: 2rem 0.5rem;
-    width: 100%;
+    padding: 1rem 0.5rem;
+  }
+  @include desktop {
+    height: 100vh;
+  }
+
+  .inner-sidebar {
+    width: 90%;
+    margin: auto;
+    display: grid;
+
+    @include mobile {
+      font-size: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem;
+    }
+
+    .nav-active {
+      background-color: color(transparent);
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
   }
 }

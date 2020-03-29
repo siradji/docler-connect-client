@@ -1,0 +1,39 @@
+@import '../../../../template/layout.scss';
+
+.wrapper-footer {
+  padding: 0.5rem;
+  box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.1);
+  .inner-footer {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-gap: 0.8rem;
+
+    .message-button {
+      border: none;
+      outline: none;
+      background-color: color(secondary);
+      border-radius: 0.5rem;
+      font-size: 2rem;
+      color: #fff;
+      @include desktop {
+        font-size: 4rem;
+      }
+    }
+
+    .message-input {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      border-radius: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 0.09rem solid color(accent);
+      @include mobile {
+        height: 3rem;
+      }
+      @include desktop {
+        font-size: 2rem;
+        height: 4rem;
+      }
+    }
+  }
+}
