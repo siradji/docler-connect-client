@@ -1,9 +1,9 @@
 import React from 'react'
 // core components
 import FormTitle from '../../components/home/FormTitle'
-import UserNameInput from '../../components/home/UserNameInput'
+import UserNameInput from '../../components/global/UserNameInput'
 import RoomSelect from '../../components/home/RoomSelect'
-import Button from '../../components/home/Button'
+import Button from '../../components/global/Button/Primary'
 import ShowText from '../../components/home/showcase'
 
 import './home.scss'

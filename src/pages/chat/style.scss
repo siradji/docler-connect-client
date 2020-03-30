@@ -25,9 +25,11 @@
     }
 
     .chat {
-      grid-area: chat;
-      margin: 0 8rem;
-      height: fit-content;
+      @include desktop {
+        grid-area: chat;
+        margin: 2rem 8rem;
+        border-radius: 2rem;
+      }
       box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.1);
     }
   }

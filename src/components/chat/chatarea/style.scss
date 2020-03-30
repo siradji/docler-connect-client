@@ -1,9 +1,1 @@
 @import '../../../template/layout.scss';
-
-.wrapper-chatarea {
-  @include desktop {
-    padding: 0;
-    // display: grid;
-    // grid-template-rows: 1fr 5fr 1fr;
-  }
-}

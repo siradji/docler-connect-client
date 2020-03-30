@@ -2,13 +2,33 @@
 
 .wrapper-header {
   background-color: color(secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   @include desktop {
-    padding: 2rem 0;
+    padding: 1rem 0;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
   }
 
   @include mobile {
     padding: 1rem 0.5rem;
     border: none;
     margin: 0 0 0.5rem 0;
+  }
+
+  .header-heading {
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+  .header-lead {
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
   }
 }

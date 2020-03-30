@@ -1,3 +1,3 @@
-import Users from './Users'
+import UserCard from './UserCard'
 
-export default Users
+export default UserCard

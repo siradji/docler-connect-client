@@ -9,7 +9,13 @@ const Sidepane = () => (
   <div className="wrapper-sidebar">
     <div className="inner-sidebar">
       {links.map(({ name, path, icon }) => (
-        <NavLink exact activeClassName="nav-active" key={name} to={path}>
+        <NavLink
+          className="nav-item"
+          exact
+          activeClassName="nav-active"
+          key={name}
+          to={path}
+        >
           {icon}
         </NavLink>
       ))}

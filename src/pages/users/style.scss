@@ -1,0 +1,30 @@
+@import '../../template/layout.scss';
+
+.users-container {
+  overflow: scroll;
+  height: 100vh;
+  .user-lists {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mobile {
+      width: 90%;
+      padding: 1rem;
+    }
+  }
+}
+
+.users-chat {
+  @include mobile {
+    display: none;
+  }
+}
+
+.users-mobile {
+  @include desktop {
+    display: none;
+  }
+}

@@ -1,8 +1,49 @@
 @import '../../template/layout.scss';
 
-.wrapper-settings {
-  margin: auto;
+.settings-username {
+  display: flex;
+  flex-direction: column;
   @include mobile {
-    width: 90%;
+  }
+  .username-label {
+    color: color(accent);
+    font-size: 1.5rem;
+  }
+}
+
+.settings-interface {
+  margin: 1rem 0;
+
+  @include switch;
+  .interface-label {
+    color: color(accent);
+    font-size: 1.5rem;
+  }
+}
+
+.settings-clockmode {
+  margin: 1rem;
+  .settings-clocks {
+    margin: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+    .clockmode-label {
+      color: color(accent);
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin: 1rem 0;
+
+      @include mobile {
+        font-size: 1rem;
+      }
+    }
+
+    & input {
+      background-color: color(secondary);
+      font-size: 1rem;
+      width: 2rem;
+      height: 2rem;
+    }
   }
 }
