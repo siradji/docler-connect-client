@@ -1,7 +1,7 @@
 @import '../../template/layout.scss';
 
 .users-container {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 100vh;
   .user-lists {
     width: 70%;

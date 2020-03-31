@@ -2,9 +2,13 @@
 
 .wrapper-settings {
   display: flex;
+
+  @include mobile {
+    flex-direction: column;
+  }
   .div-settings {
     @include mobile {
-      margin: 1rem auto;
+      margin: 2rem auto;
       width: 90%;
     }
     @include desktop {

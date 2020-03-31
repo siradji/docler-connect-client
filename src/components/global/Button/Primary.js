@@ -4,15 +4,19 @@ import PropTypes from 'prop-types'
 
 import './style.scss'
 
-const Primary = ({ title, link }) => (
+const Primary = ({ title, link, onClick }) => (
   // eslint-disable-next-line no-unused-expressions
   <>
     {link ? (
       <Link to={link}>
-        <button className="primary-button">{title}</button>
+        <button className="primary-button" onClick={onClick}>
+          {title}
+        </button>
       </Link>
     ) : (
-      <button className="primary-button">{title}</button>
+      <button className="primary-button" onClick={onClick}>
+        {title}
+      </button>
     )}
   </>
 )
@@ -20,9 +24,11 @@ const Primary = ({ title, link }) => (
 Primary.propTypes = {
   title: PropTypes.string.isRequired,
   link: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 Primary.defaultProps = {
   link: '#',
+  onClick: () => {},
 }
 export default Primary
