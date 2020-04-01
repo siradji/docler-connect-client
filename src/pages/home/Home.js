@@ -1,4 +1,9 @@
-import React from 'react'
+/* eslint-disable no-confusing-arrow */
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+
+//  redux connect
+import { connect } from 'react-redux'
 // core components
 import FormTitle from '../../components/home/FormTitle'
 import UserNameInput from '../../components/global/UserNameInput'
@@ -6,23 +11,61 @@ import RoomSelect from '../../components/home/RoomSelect'
 import Button from '../../components/global/Button/Primary'
 import ShowText from '../../components/home/showcase'
 
+// redux actions
+import { getUser, getRoom } from '../../state/actions/settingsActions'
+
 import './home.scss'
 
-const Home = () => (
-  <>
-    <div className="bg-container">hello</div>
-    <section className="wrapper-home">
-      <div className="showcase-container">
-        <ShowText />
-      </div>
-      <div className="card">
-        <FormTitle title="Join your coworkers now" />
-        <UserNameInput />
-        <RoomSelect />
-        <Button title="Join" link="/chat" />
-      </div>
-    </section>
-  </>
-)
+// eslint-disable-next-line no-shadow
+const Home = ({ getUser, getRoom }) => {
+  const [username, setUsername] = useState('')
+  const [room, setRoom] = useState('Engineering')
 
-export default Home
+  useEffect(() => {
+    getUser(username)
+    getRoom(room)
+  }, [room, username])
+  return (
+    <>
+      <div className="bg-container">hello</div>
+      <section className="wrapper-home">
+        <div className="showcase-container">
+          <ShowText />
+        </div>
+        <div className="card">
+          <FormTitle title="Join your coworkers now" />
+          <UserNameInput
+            onChange={e => {
+              setUsername(e.target.value)
+            }}
+            value={username}
+          />
+          <RoomSelect
+            onChange={e => {
+              setRoom(e.target.value)
+            }}
+            value={room}
+          />
+          <Button
+            title="Join"
+            link="/chat"
+            onClick={
+              e => (room === '' || username === '' ? e.preventDefault() : null)
+              // eslint-disable-next-line react/jsx-curly-newline
+            }
+          />
+        </div>
+      </section>
+    </>
+  )
+}
+
+Home.propTypes = {
+  getUser: PropTypes.func.isRequired,
+  getRoom: PropTypes.func.isRequired,
+}
+const mapDispatchToProps = {
+  getUser,
+  getRoom,
+}
+export default connect(null, mapDispatchToProps)(Home)

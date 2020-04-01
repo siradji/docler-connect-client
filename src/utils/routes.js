@@ -1,7 +1,7 @@
 import Home from '../pages/home'
-import Chat from '../pages/chat'
 import Users from '../pages/users'
 import Settings from '../pages/settings'
+import Chat from '../pages/chat'
 
 const routes = [
   {
