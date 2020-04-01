@@ -20,8 +20,7 @@ import './home.scss'
 const Home = ({ getUser, getRoom }) => {
   const [name, setName] = useState('')
   const [room, setRoom] = useState('Engineering')
-  console.log(time12Hours())
-  console.log(time24hours())
+
   useEffect(() => {
     getUser(name)
     getRoom(room)

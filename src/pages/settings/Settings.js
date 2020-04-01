@@ -35,7 +35,6 @@ const Settings = ({ setSettings }) => {
     setItemToLocalStorage(storageItems)
     setSettings()
   }, [themeColor, time24hours, time12Hours, sendOption])
-  console.log('rendered')
 
   //  handles for the inputs
   const handleTime24Hours = () => {

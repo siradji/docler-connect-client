@@ -24,7 +24,6 @@ const Chat = ({
     //  Get all users in the room
     getUsers()
   }, [username])
-  console.log('rendered')
 
   return (
     <div className="wrapper-chat">
