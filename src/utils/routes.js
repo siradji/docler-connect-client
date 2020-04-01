@@ -1,16 +1,8 @@
-import Home from '../pages/home'
 import Users from '../pages/users'
 import Settings from '../pages/settings'
 import Chat from '../pages/chat'
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-    exact: true,
-  },
-
   {
     path: '/chat',
     name: 'Chat',

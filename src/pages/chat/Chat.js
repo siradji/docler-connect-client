@@ -1,35 +1,30 @@
+/* eslint-disable no-shadow */
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { joinRoom, getMessage } from '../../state/actions/socketIO'
+import { joinRoom, getMessage, getUsers } from '../../state/actions/socketIO'
 //  core components
 import Sidepane from '../../components/chat/Sidebar'
 import ChatArea from '../../components/chat/chatarea'
 import UserCard from '../../components/users'
 import './style.scss'
 
-const users = [
-  {
-    name: 'jake',
-    isOnline: true,
-  },
-  {
-    name: 'Amanda',
-    isOnline: true,
-  },
-  {
-    name: 'Lisa',
-    isOnline: false,
-  },
-]
-
-// eslint-disable-next-line no-shadow
-const Chat = ({ getMessage, joinRoom, chat: { username, room } }) => {
+const Chat = ({
+  getUsers,
+  getMessage,
+  joinRoom,
+  chat: { username, room, users },
+}) => {
   useEffect(() => {
+    //  function to send user back to the server on join
     joinRoom({ username, room })
-    // getMessage()
+    // getMessage all  emitted messages from server
     getMessage()
-  }, [])
+
+    //  Get all users in the room
+    getUsers()
+  }, [username])
+  console.log('rendered')
 
   return (
     <div className="wrapper-chat">
@@ -40,8 +35,8 @@ const Chat = ({ getMessage, joinRoom, chat: { username, room } }) => {
         <div className="users">
           <div className="users-container">
             <div className="user-lists">
-              {users.map(({ name, isOnline }) => (
-                <UserCard isOnline={isOnline} name={name} key={name} />
+              {users.map(({ username, id }) => (
+                <UserCard isOnline name={username} key={id} />
               ))}
             </div>
           </div>
@@ -58,19 +53,23 @@ const Chat = ({ getMessage, joinRoom, chat: { username, room } }) => {
 Chat.propTypes = {
   joinRoom: PropTypes.func.isRequired,
   getMessage: PropTypes.func.isRequired,
+  getUsers: PropTypes.func.isRequired,
   chat: PropTypes.shape({
     room: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
+    users: PropTypes.array.isRequired,
   }).isRequired,
 }
 //  redux
 const mapDispatchToProps = {
   joinRoom,
   getMessage,
+  getUsers,
 }
 
 const mapStateToProps = state => ({
   chat: state.chat,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat)
+const exports = React.memo(Chat)
+export default connect(mapStateToProps, mapDispatchToProps)(exports)

@@ -1,5 +1,6 @@
 @import '../../../../template/layout.scss';
 .wrapper-body {
+  position: relative;
   overflow-y: scroll;
   @include mobile {
     height: 32rem;

@@ -12,6 +12,10 @@ const RoomSelect = ({ onChange }) => (
     <option value="accounting">Accounting</option>
   </select>
 )
+
+RoomSelect.defaultProps = {
+  onChange: null,
+}
 RoomSelect.propTypes = {
   onChange: PropTypes.func,
 }

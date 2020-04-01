@@ -1,4 +1,4 @@
-import { ADD_MESSAGE } from '../types'
+import { ADD_MESSAGE, GET_USERS } from '../types'
 
 //  socket io event to join a room after sign up
 export const joinRoom = data => ({
@@ -24,4 +24,14 @@ export const getMessage = () => dispatch =>
       }),
   })
 
-// export const message = dispatch => {}
+// Fet al users
+
+export const getUsers = () => dispatch =>
+  dispatch({
+    event: 'users',
+    handle: users =>
+      dispatch({
+        type: GET_USERS,
+        payload: users,
+      }),
+  })

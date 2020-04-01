@@ -10,7 +10,7 @@ import UserNameInput from '../../components/global/UserNameInput'
 import RoomSelect from '../../components/home/RoomSelect'
 import Button from '../../components/global/Button/Primary'
 import ShowText from '../../components/home/showcase'
-
+import { time12Hours, time24hours } from '../../utils/general'
 // redux actions
 import { getUser, getRoom } from '../../state/actions/settingsActions'
 
@@ -18,16 +18,17 @@ import './home.scss'
 
 // eslint-disable-next-line no-shadow
 const Home = ({ getUser, getRoom }) => {
-  const [username, setUsername] = useState('')
+  const [name, setName] = useState('')
   const [room, setRoom] = useState('Engineering')
-
+  console.log(time12Hours())
+  console.log(time24hours())
   useEffect(() => {
-    getUser(username)
+    getUser(name)
     getRoom(room)
-  }, [room, username])
+  }, [room, name])
   return (
     <>
-      <div className="bg-container">hello</div>
+      <div className="bg-container" />
       <section className="wrapper-home">
         <div className="showcase-container">
           <ShowText />
@@ -36,9 +37,9 @@ const Home = ({ getUser, getRoom }) => {
           <FormTitle title="Join your coworkers now" />
           <UserNameInput
             onChange={e => {
-              setUsername(e.target.value)
+              setName(e.target.value)
             }}
-            value={username}
+            value={name}
           />
           <RoomSelect
             onChange={e => {
@@ -50,7 +51,7 @@ const Home = ({ getUser, getRoom }) => {
             title="Join"
             link="/chat"
             onClick={
-              e => (room === '' || username === '' ? e.preventDefault() : null)
+              e => (room === '' || name === '' ? e.preventDefault() : null)
               // eslint-disable-next-line react/jsx-curly-newline
             }
           />
@@ -64,6 +65,7 @@ Home.propTypes = {
   getUser: PropTypes.func.isRequired,
   getRoom: PropTypes.func.isRequired,
 }
+
 const mapDispatchToProps = {
   getUser,
   getRoom,

@@ -1,13 +1,13 @@
 @import '../../../template/layout.scss';
 
 .msg-wrapper {
-  margin-top: 2rem;
+  margin: 2rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   background: color(secondary);
   color: color(primary);
   padding: 1rem 1.5rem;
-  width: 50%;
+  width: 80%;
   .msg-top {
     margin-bottom: 1rem;
     .msg-user {
@@ -28,20 +28,33 @@
 }
 
 .sent {
-  justify-content: right;
+  justify-self: end;
   background-color: color(secondary);
   color: color(primary);
-  border-radius: 0.5rem;
   padding: 1rem 1.5rem;
   margin: 0.5rem 0;
+  clip-path: polygon(
+    0% 105%,
+    0% 0%,
+    105% 0%,
+    105% 105%,
+    43px 105%,
+    43px 80%,
+    21px 80%,
+    21px 105%
+  );
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .recieved {
-  justify-content: left;
-  background-color: color(primary);
-  color: color(accent);
-  border-radius: 2rem;
-  border: 1rem solid color(accent);
+  justify-self: start;
+  background-color: color(transparent);
+  color: color(primary);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   padding: 1rem 1.5rem;
-  margin: 0.5rem 0;
+  // clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 45% 74%, 26% 100%, 19% 75%, 0% 75%);
 }

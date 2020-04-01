@@ -1,73 +1,49 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import UserCard from '../../components/users'
-import ChatArea from '../../components/chat/chatarea'
 import Sidepane from '../../components/chat/Sidebar'
 
 import './style.scss'
 
-const users = [
-  {
-    name: 'jake',
-    isOnline: true,
-  },
-  {
-    name: 'Amanda',
-    isOnline: true,
-  },
-  {
-    name: 'Lisa',
-    isOnline: false,
-  },
-  {
-    name: 'Lisa',
-    isOnline: false,
-  },
-  {
-    name: 'Lisa',
-    isOnline: false,
-  },
-  {
-    name: 'Lisa',
-    isOnline: false,
-  },
-  {
-    name: 'Lisa',
-    isOnline: false,
-  },
-  {
-    name: 'Lisa',
-    isOnline: false,
-  },
-]
-
-const UsersList = () => (
-  <div className="users-container">
-    <div className="user-lists">
-      {users.map(({ name, isOnline }) => (
-        <UserCard isOnline={isOnline} name={name} key={name} />
-      ))}
-    </div>
-  </div>
-)
-
-const Users = () => (
+const Users = ({ chat: { users } }) => (
   <div className="wrapper-chat">
     <div className="inner-chat">
       <div className="sidepane">
         <Sidepane />
       </div>
       <div className="users">
-        <UsersList />
+        <div className="users-container">
+          <div className="user-lists">
+            {users.map(({ username, id }) => (
+              <UserCard isOnline name={username} key={id} />
+            ))}
+          </div>
+        </div>
       </div>
       <div classNames="users-mobile">
-        <UsersList />
-      </div>
-      <div className="chat users-chat">
-        <ChatArea />
+        <div className="user-lists">
+          {users.map(({ username, id }) => (
+            <UserCard isOnline name={username} key={id} />
+          ))}
+        </div>
       </div>
     </div>
   </div>
 )
+Users.propTypes = {
+  chat: PropTypes.shape({
+    users: PropTypes.shape({
+      username: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+}
 
-export default Users
+const mapStateToProps = state => ({
+  chat: state.chat,
+})
+
+export default connect(mapStateToProps)(Users)

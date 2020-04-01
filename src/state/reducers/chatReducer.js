@@ -1,11 +1,12 @@
-import { SET_USER, SET_ROOM, ADD_MESSAGE } from '../types'
+import { SET_USER, SET_ROOM, ADD_MESSAGE, GET_USERS } from '../types'
 
 const initialState = {
   username: null,
   room: null,
   messages: [],
   user: null,
-  users: null,
+  users: [],
+  isLoggedIn: false,
 }
 
 export default (state = initialState, action) => {
@@ -19,11 +20,17 @@ export default (state = initialState, action) => {
       return {
         ...state,
         room: action.payload,
+        isLoggedIn: true,
       }
     case ADD_MESSAGE:
       return {
         ...state,
         messages: [...state.messages, action.payload],
+      }
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
       }
     default:
       return state

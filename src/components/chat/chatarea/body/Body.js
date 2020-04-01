@@ -6,6 +6,8 @@ import './style.scss'
 const Body = ({ children }) => <div className="wrapper-body">{children}</div>
 
 Body.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.shape({
+    Message: PropTypes.element.isRequired,
+  }).isRequired,
 }
 export default Body
