@@ -1,60 +1,54 @@
 @import '../../../template/layout.scss';
 
 .msg-wrapper {
-  margin: 2rem 1rem 1rem 1rem;
+  margin: 2rem 0.5rem 0 0.5rem;
   display: flex;
   flex-direction: column;
-  background: color(secondary);
-  color: color(primary);
+  background: none;
   padding: 1rem 1.5rem;
   width: 80%;
   .msg-top {
-    margin-bottom: 1rem;
+    color: set-text-color(color(primary));
+    margin-bottom: 0.5rem;
     .msg-user {
-      font-size: 2rem;
+      font-size: 1rem;
     }
   }
   .msg-bottom {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     .msg-time {
-      font-size: 2rem;
+      font-size: 1rem;
+      color: set-text-color(color(primary));
     }
   }
   .msg-container {
+    background: color(transparent);
     .msg {
-      font-size: 1.5rem;
+      font-size: 1rem;
+      color: color(primary);
     }
   }
 }
+.sentContainer {
+  float: left;
+}
+.recievedContainer {
+  float: right;
+}
 
 .sent {
-  justify-self: end;
-  background-color: color(secondary);
-  color: color(primary);
+  color: set-text-color(color(transparent));
   padding: 1rem 1.5rem;
-  margin: 0.5rem 0;
-  clip-path: polygon(
-    0% 105%,
-    0% 0%,
-    105% 0%,
-    105% 105%,
-    43px 105%,
-    43px 80%,
-    21px 80%,
-    21px 105%
-  );
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
 }
 
 .recieved {
-  justify-self: start;
-  background-color: color(transparent);
-  color: color(primary);
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  color: set-text-color(color(transparent));
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-left-radius: 4rem;
   padding: 1rem 1.5rem;
   // clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 45% 74%, 26% 100%, 19% 75%, 0% 75%);
 }

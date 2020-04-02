@@ -2,7 +2,12 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { joinRoom, getMessage, getUsers } from '../../state/actions/socketIO'
+import {
+  joinRoom,
+  getMessage,
+  getUsers,
+  disconnect,
+} from '../../state/actions/socketIO'
 //  core components
 import Sidepane from '../../components/chat/Sidebar'
 import ChatArea from '../../components/chat/chatarea'
@@ -13,6 +18,7 @@ const Chat = ({
   getUsers,
   getMessage,
   joinRoom,
+  disconnect,
   chat: { username, room, users },
 }) => {
   useEffect(() => {
@@ -20,10 +26,12 @@ const Chat = ({
     joinRoom({ username, room })
     // getMessage all  emitted messages from server
     getMessage()
-
     //  Get all users in the room
     getUsers()
-  }, [username])
+    return () => {
+      disconnect()
+    }
+  }, [])
 
   return (
     <div className="wrapper-chat">
@@ -64,6 +72,7 @@ const mapDispatchToProps = {
   joinRoom,
   getMessage,
   getUsers,
+  disconnect,
 }
 
 const mapStateToProps = state => ({

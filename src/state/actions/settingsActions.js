@@ -14,16 +14,13 @@ export const getRoom = room => ({
 export const setSettings = () => {
   const itemsToGet = [
     {
-      name: 'timeMode12',
+      name: 'clockMode',
     },
     {
       name: 'theme',
     },
     {
-      name: 'timeMode24',
-    },
-    {
-      name: 'sendOption',
+      name: 'sendWithCtrl',
     },
   ]
   const data = getLocalStorageItems(itemsToGet)

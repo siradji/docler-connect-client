@@ -10,21 +10,21 @@ import UserNameInput from '../../components/global/UserNameInput'
 import RoomSelect from '../../components/home/RoomSelect'
 import Button from '../../components/global/Button/Primary'
 import ShowText from '../../components/home/showcase'
-import { time12Hours, time24hours } from '../../utils/general'
 // redux actions
-import { getUser, getRoom } from '../../state/actions/settingsActions'
+import { getUser, getRoom, setSettings } from '../../state/actions/settingsActions'
 
 import './home.scss'
 
 // eslint-disable-next-line no-shadow
-const Home = ({ getUser, getRoom }) => {
+const Home = ({ getUser, getRoom, setSettings }) => {
   const [name, setName] = useState('')
   const [room, setRoom] = useState('Engineering')
 
   useEffect(() => {
     getUser(name)
     getRoom(room)
-  }, [room, name])
+    setSettings()
+  }, [])
   return (
     <>
       <div className="bg-container" />
@@ -68,5 +68,6 @@ Home.propTypes = {
 const mapDispatchToProps = {
   getUser,
   getRoom,
+  setSettings,
 }
 export default connect(null, mapDispatchToProps)(Home)

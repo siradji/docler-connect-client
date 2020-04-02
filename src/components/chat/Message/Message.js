@@ -4,50 +4,46 @@ import { connect } from 'react-redux'
 // import PropTypes from 'prop-types'
 
 //  core components
-import User from './User'
-import TimeStamp from './TimeStamp'
+import User from './user'
+import TimeStamp from './timestamp'
 import './style.scss'
 
 const Message = ({
   message: { user, text },
-  settings: { clockMode24 },
+  settings: { clockMode },
   chat: { username },
 }) => {
   let isSentByUser = false
-  const trimmed = username.toLowerCase().trim()
-  if (user === trimmed) {
+  if (username !== user) {
     isSentByUser = true
   }
 
   return isSentByUser ? (
     <>
-      <div className="msg-wrapper sent">
+      <div className="msg-wrapper sentContainer">
         <User user={user} />
-        <div className="msg-container">
+        <div className="msg-container sent">
           <p className="msg">{text}</p>
         </div>
-        <TimeStamp clockMode={clockMode24} />
+        <TimeStamp clockMode={clockMode} />
       </div>
     </>
   ) : (
     <>
-      <div className="msg-wrapper recieved">
-        <User user={user} />
-        <div className="msg-container">
+      <div className="msg-wrapper recievedContainer ">
+        <div className="msg-container recieved">
           <p className="msg">{text}</p>
         </div>
-        <TimeStamp clockMode={clockMode24} />
+        <TimeStamp clockMode={clockMode} />
       </div>
     </>
   )
 }
 
-// Message.propTypes = {
-//   message:
-// }
 const mapStateToProps = state => ({
   settings: state.settings,
   chat: state.chat,
 })
 
-export default connect(mapStateToProps)(Message)
+const exports = React.memo(Message)
+export default connect(mapStateToProps)(exports)

@@ -3,11 +3,12 @@
 .wrapper-users {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: start;
-  padding: 1rem 3rem;
+  padding: 1.5rem 3rem;
   margin: 2rem 0;
-  border-radius: 2rem;
-  box-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: rem;
+  box-shadow: 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
   @include mobile {
     margin: 0.5rem 0;
   }

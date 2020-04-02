@@ -1,8 +1,7 @@
 import { SET_SETTINGS } from '../types'
 
 const initialState = {
-  clockMode12: true,
-  clockMode24: false,
+  clockMode: false,
   darkTheme: false,
   cltrEnter: true,
 }
@@ -10,12 +9,12 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_SETTINGS:
+      console.log(action.payload)
       return {
         ...state,
-        clockMode12: action.payload[0],
-        clockMode24: action.payload[2],
+        clockMode: action.payload[0],
         darkTheme: action.payload[1],
-        cltrEnter: action.payload[3],
+        cltrEnter: action.payload[2],
       }
     default:
       return state

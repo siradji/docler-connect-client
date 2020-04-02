@@ -1,11 +1,33 @@
-export const getItem = item => localStorage.getItem(item)
-export const setItemToLocalStorage = item => {
-  if (typeof item === 'object') {
-    item.map(p => localStorage.setItem(p.name, p.value))
-  } else {
-    localStorage.setItem(item.name, item.value)
-  }
+/* eslint-disable no-unused-expressions */
+/**
+ functions to set settings based on local storage
+ */
+export const setSettings = (name, localKey) => {
+  const elems = document.querySelectorAll(`[name=${name}]`)
+  const val = localStorage.getItem(localKey)
+  elems.forEach(elem => {
+    if (elem.id === val) {
+      // eslint-disable-next-line no-param-reassign
+      elem.checked = true
+    }
+  })
+}
+
+//  add item to local storage
+export const writeItem = (key, item) => {
+  localStorage.setItem(key, item)
   return item
+}
+//  get item from local storage
+export const getItem = key => {
+  localStorage.getItem(key)
+  return key
+}
+
+//  delete item from local storaga
+export const removeItem = key => {
+  localStorage.removeItem(key)
+  return key
 }
 
 export const getLocalStorageItems = payload => {

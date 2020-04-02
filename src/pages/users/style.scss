@@ -2,7 +2,8 @@
 
 .users-container {
   overflow-y: scroll;
-  height: 100vh;
+  overflow-x: hidden;
+  height: 90vh;
   .user-lists {
     width: 70%;
     margin: auto;
@@ -17,14 +18,18 @@
   }
 }
 
-.users-chat {
-  @include mobile {
-    display: none;
+.wrapper-chat {
+  .inner-chat {
+    .users-mobile {
+      @include desktop {
+        display: none;
+      }
+    }
   }
 }
 
-.users-mobile {
-  @include desktop {
+.users-chat {
+  @include mobile {
     display: none;
   }
 }

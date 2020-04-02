@@ -15,7 +15,7 @@ export default function socketMiddleware() {
     }
 
     if (leave) {
-      socket.emit('disconnect')
+      socket.removeListener(event)
       socket.off()
     }
 

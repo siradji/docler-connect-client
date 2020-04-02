@@ -7,6 +7,11 @@ export const joinRoom = data => ({
   payload: data,
 })
 
+export const disconnect = () => ({
+  event: 'disconnect',
+  leave: true,
+})
+
 //  socket io action to send user message to the server
 export const sendMsg = message => ({
   event: 'sendMessage',

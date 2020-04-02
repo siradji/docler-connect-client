@@ -23,7 +23,7 @@ const Users = ({ chat: { users } }) => (
           </div>
         </div>
       </div>
-      <div classNames="users-mobile">
+      <div className="users-mobile">
         <div className="user-lists">
           {users.map(({ username, id }) => (
             <UserCard isOnline name={username} key={id} />
