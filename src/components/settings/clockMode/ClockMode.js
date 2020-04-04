@@ -1,16 +1,24 @@
+/* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { loadSettings } from '../../../state/actions/settingsActions'
+
 import { writeItem, setSettings } from '../../../utils/localStorage'
 
-const ClockMode = () => {
+const ClockMode = ({ loadSettings }) => {
+  const [state, setstate] = useState('')
   //  save choosen clock mode to local storage
   useEffect(() => {
     setSettings('clock', 'clockMode')
-  }, [])
+    loadSettings()
+  }, [state])
 
   const handleChange = e => {
     const value = e.target.id
     writeItem('clockMode', value)
+    setstate(value)
   }
 
   return (
@@ -28,4 +36,10 @@ const ClockMode = () => {
   )
 }
 
-export default ClockMode
+ClockMode.propTypes = {
+  loadSettings: PropTypes.func.isRequired,
+}
+const mapDispatchToProps = {
+  loadSettings,
+}
+export default connect(null, mapDispatchToProps)(ClockMode)

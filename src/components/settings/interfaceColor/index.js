@@ -1,3 +1,3 @@
-import InterfaceColor from './InterfaceColor'
+import InterfaceColor from './interfaceColor'
 
 export default InterfaceColor

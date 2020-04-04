@@ -6,7 +6,7 @@ import {
   joinRoom,
   getMessage,
   getUsers,
-  disconnect,
+  disconnectChat,
 } from '../../state/actions/socketIO'
 //  core components
 import Sidepane from '../../components/chat/Sidebar'
@@ -18,7 +18,7 @@ const Chat = ({
   getUsers,
   getMessage,
   joinRoom,
-  disconnect,
+  disconnectChat,
   chat: { username, room, users },
 }) => {
   useEffect(() => {
@@ -29,7 +29,7 @@ const Chat = ({
     //  Get all users in the room
     getUsers()
     return () => {
-      disconnect()
+      disconnectChat()
     }
   }, [])
 
@@ -61,6 +61,7 @@ Chat.propTypes = {
   joinRoom: PropTypes.func.isRequired,
   getMessage: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
+  disconnectChat: PropTypes.func.isRequired,
   chat: PropTypes.shape({
     room: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
@@ -72,7 +73,7 @@ const mapDispatchToProps = {
   joinRoom,
   getMessage,
   getUsers,
-  disconnect,
+  disconnectChat,
 }
 
 const mapStateToProps = state => ({

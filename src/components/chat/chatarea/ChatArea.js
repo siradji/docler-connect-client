@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -17,8 +18,8 @@ const ChatArea = ({ chat: { room, messages } }) => (
     </div>
     <div className="body-chatarea">
       <Body>
-        {messages.map(message => (
-          <Message kwy={message.user} message={message} />
+        {messages.map((message, index) => (
+          <Message key={index} message={message} />
         ))}
       </Body>
     </div>

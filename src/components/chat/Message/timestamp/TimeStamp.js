@@ -10,7 +10,7 @@ const TimeStamp = ({ clockMode }) => (
 )
 
 TimeStamp.propTypes = {
-  clockMode: PropTypes.bool.isRequired,
+  clockMode: PropTypes.string.isRequired,
 }
 
 export default TimeStamp

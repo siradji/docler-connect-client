@@ -11,20 +11,20 @@ import RoomSelect from '../../components/home/RoomSelect'
 import Button from '../../components/global/Button/Primary'
 import ShowText from '../../components/home/showcase'
 // redux actions
-import { getUser, getRoom, setSettings } from '../../state/actions/settingsActions'
+import { getUser, getRoom, loadSettings } from '../../state/actions/settingsActions'
 
 import './home.scss'
 
 // eslint-disable-next-line no-shadow
-const Home = ({ getUser, getRoom, setSettings }) => {
+const Home = ({ getUser, getRoom, loadSettings }) => {
   const [name, setName] = useState('')
   const [room, setRoom] = useState('Engineering')
 
   useEffect(() => {
     getUser(name)
     getRoom(room)
-    setSettings()
-  }, [])
+    loadSettings()
+  }, [name, room])
   return (
     <>
       <div className="bg-container" />
@@ -63,11 +63,12 @@ const Home = ({ getUser, getRoom, setSettings }) => {
 Home.propTypes = {
   getUser: PropTypes.func.isRequired,
   getRoom: PropTypes.func.isRequired,
+  loadSettings: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = {
   getUser,
   getRoom,
-  setSettings,
+  loadSettings,
 }
 export default connect(null, mapDispatchToProps)(Home)

@@ -1,0 +1,49 @@
+$themes: (
+  light: (
+    backgroundColor: color(dark-primary),
+    clipart: color(dark-secondary),
+    textColor: color(accent),
+    buttonColor: color(secondary),
+    inputBorder: 2px solid color(accent),
+    card-bg: color(primary),
+    heading: color(primary),
+    inputColor: color(dark),
+    navigation: color(primary),
+  ),
+  dark: (
+    backgroundColor: #ce93d8,
+    clipart: color(dark-primary),
+    textColor: color(accent),
+    buttonColor: color(dark-secondary),
+    inputBorder: 2px solid color(accent),
+    card-bg: color(dark-primary),
+    heading: color(primary),
+    inputColor: color(dark-secondary),
+    navigation: color(dark-secondary),
+  ),
+);
+
+//  mixin for theming
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

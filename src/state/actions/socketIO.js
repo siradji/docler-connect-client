@@ -7,8 +7,8 @@ export const joinRoom = data => ({
   payload: data,
 })
 
-export const disconnect = () => ({
-  event: 'disconnect',
+export const disconnectChat = () => ({
+  event: 'disconnet',
   leave: true,
 })
 

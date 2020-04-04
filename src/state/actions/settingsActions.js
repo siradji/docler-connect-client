@@ -1,17 +1,25 @@
-import { SET_USER, SET_ROOM, SET_SETTINGS } from '../types'
+import { SET_USER, SET_ROOM, SET_SETTINGS, LEAVE_ROOM } from '../types'
 import { getLocalStorageItems } from '../../utils/localStorage'
 
+//  set the username to null thus, logging iut
+export const logOut = () => ({
+  type: LEAVE_ROOM,
+})
+
+//  get current user
 export const getUser = username => ({
   type: SET_USER,
   payload: username,
 })
 
+//  get room
 export const getRoom = room => ({
   type: SET_ROOM,
   payload: room,
 })
 
-export const setSettings = () => {
+//  action to set settings from the local storage on first load
+export const loadSettings = () => {
   const itemsToGet = [
     {
       name: 'clockMode',
@@ -30,11 +38,3 @@ export const setSettings = () => {
     payload: data,
   }
 }
-// export const setThemeColor = () => dispatch => {
-//   const theme = localStorage.getItem('themeColor')
-//   const time12hours = localStorage.getItem('time12hours')
-//   const time24hours = localStorage.getItem('time24hours')
-//     const sendoption = localStorage.getItem('sendOptions')
-
-//   dispatch((type: GET_SETTINGS), (payload: value))
-// }

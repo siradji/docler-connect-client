@@ -1,15 +1,15 @@
 import { SET_SETTINGS } from '../types'
 
 const initialState = {
-  clockMode: false,
-  darkTheme: false,
-  cltrEnter: true,
+  clockMode: 'on',
+  darkTheme: 'light',
+  cltrEnter: 'on',
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    //  set setting recieved from local storage
     case SET_SETTINGS:
-      console.log(action.payload)
       return {
         ...state,
         clockMode: action.payload[0],

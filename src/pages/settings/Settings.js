@@ -3,8 +3,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 // redux action
-import { setSettings } from '../../state/actions/settingsActions'
-import { disconnect } from '../../state/actions/socketIO'
+import { disconnectChat } from '../../state/actions/socketIO'
 //  core components
 import Sidepane from '../../components/chat/Sidebar'
 import Username from '../../components/settings/username'
@@ -19,12 +18,14 @@ import { clearStorage } from '../../utils/localStorage'
 import './style.scss'
 
 // eslint-disable-next-line no-shadow
-const Settings = ({ setSettings, disconnect }) => {
-  useEffect(() => {
-    return () => {
-      disconnect()
-    }
-  }, [])
+const Settings = ({ disconnectChat }) => {
+  //  disconnect current
+  useEffect(
+    () => () => {
+      disconnectChat()
+    },
+    [],
+  )
 
   const handleReset = () => {
     clearStorage()
@@ -35,6 +36,7 @@ const Settings = ({ setSettings, disconnect }) => {
         <Sidepane />
       </div>
       <div className="div-settings">
+        <Username />
         <InterfaceColor />
         <ClockMode />
         <SendOption />
@@ -45,10 +47,13 @@ const Settings = ({ setSettings, disconnect }) => {
 }
 
 Settings.propTypes = {
-  setSettings: PropTypes.func.isRequired,
+  disconnectChat: PropTypes.func.isRequired,
 }
 const mapDispatchToProps = {
-  setSettings,
-  disconnect,
+  disconnectChat,
 }
-export default connect(null, mapDispatchToProps)(Settings)
+
+const mapStateToProps = state => ({
+  settings: state.settings,
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Settings)

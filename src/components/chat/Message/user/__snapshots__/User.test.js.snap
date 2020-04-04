@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Without Crashing 1`] = `
+<div
+  className="msg-top"
+>
+  <p
+    className="msg-user"
+  />
+</div>
+`;

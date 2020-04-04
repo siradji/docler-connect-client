@@ -13,15 +13,15 @@ const Message = ({
   settings: { clockMode },
   chat: { username },
 }) => {
+  //  check to sse if message is from the current user
   let isSentByUser = false
-  if (username !== user) {
+  if (username === user) {
     isSentByUser = true
   }
-
+  //  display message based on the outcome of the function above
   return isSentByUser ? (
     <>
-      <div className="msg-wrapper sentContainer">
-        <User user={user} />
+      <div className="msg-wrapper SentContainer ">
         <div className="msg-container sent">
           <p className="msg">{text}</p>
         </div>
@@ -30,7 +30,8 @@ const Message = ({
     </>
   ) : (
     <>
-      <div className="msg-wrapper recievedContainer ">
+      <div className="msg-wrapper recievedContainer">
+        <User user={user} />
         <div className="msg-container recieved">
           <p className="msg">{text}</p>
         </div>

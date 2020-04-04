@@ -4,6 +4,8 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+//  private routes. will redirect to the homepage is there's no username in the state
+
 const PrivateRoute = ({ component: Component, chat: { isLoggedIn }, ...rest }) => (
   <Route
     {...rest}

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Without Crashing 1`] = `
+<div
+  className="settings-username"
+>
+  <p
+    className="username-label"
+  >
+    Change Username
+  </p>
+  <UserNameInput
+    onChange={null}
+    value={null}
+  />
+</div>
+`;
