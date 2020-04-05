@@ -2,7 +2,7 @@
 import io from 'socket.io-client'
 
 export default function socketMiddleware() {
-  const socket = io('localhost:5000')
+  const socket = io('https://docler-connect-server.herokuapp.com/')
 
   return ({ dispatch }) => next => action => {
     if (typeof action === 'function') {

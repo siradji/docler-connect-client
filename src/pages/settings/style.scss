@@ -2,6 +2,7 @@
 
 .wrapper-settings {
   display: flex;
+  overflow-y: hidden;
 
   @include mobile {
     flex-direction: column;

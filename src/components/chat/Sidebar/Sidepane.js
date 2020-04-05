@@ -10,13 +10,12 @@ import './style.scss'
 import { chatIcon, userIcon, settingsIcon } from './icons'
 
 const Sidepane = ({ messages, unReadMsg, readMsg, newMsg }) => {
-  
-  //  current msg 
+  //  current msg
   const ref = useRef(messages.length)
-  
+
   useEffect(() => {
-  //  check to see if there is a new message
-    
+    //  check to see if there is a new message
+
     if (!activepage('/chat') && ref.current !== messages.length) {
       unReadMsg()
     } else {

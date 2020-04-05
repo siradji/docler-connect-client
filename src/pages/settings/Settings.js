@@ -8,7 +8,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 //  core components
 import Sidepane from '../../components/chat/Sidebar'
-import Username from '../../components/settings/username'
 import InterfaceColor from '../../components/settings/interfaceColor'
 import ClockMode from '../../components/settings/clockMode'
 import SendOption from '../../components/settings/sendOption'
@@ -43,7 +42,6 @@ const Settings = ({ getMessage, messages, disconnect }) => {
         <Sidepane />
       </div>
       <div className="div-settings">
-        <Username />
         <InterfaceColor />
         <ClockMode />
         <SendOption />

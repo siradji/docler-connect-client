@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
 
+import ReactEmoji from 'react-emoji'
 //  core components
 import User from './user'
 import TimeStamp from './timestamp'
@@ -15,7 +15,7 @@ const Message = ({
 }) => {
   //  check to sse if message is from the current user
   let isSentByUser = false
-  if (username === user) {
+  if (username.toLowerCase() === user) {
     isSentByUser = true
   }
   //  display message based on the outcome of the function above
@@ -23,7 +23,7 @@ const Message = ({
     <>
       <div className="msg-wrapper SentContainer ">
         <div className="msg-container sent">
-          <p className="msg">{text}</p>
+          <p className="msg">{ReactEmoji.emojify(text)}</p>
         </div>
         <TimeStamp clockMode={clockMode} />
       </div>
@@ -33,7 +33,7 @@ const Message = ({
       <div className="msg-wrapper recievedContainer">
         <User user={user} />
         <div className="msg-container recieved">
-          <p className="msg">{text}</p>
+          <p className="msg">{ReactEmoji.emojify(text)}</p>
         </div>
         <TimeStamp clockMode={clockMode} />
       </div>
