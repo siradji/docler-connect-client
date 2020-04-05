@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import AppRoute from './components/global/AppRoute'
 
 import './App.scss'
@@ -15,6 +14,7 @@ const App = ({ settings: { darkTheme } }) => {
       document.querySelector('#main').classList.remove('dark')
     }
   }, [darkTheme])
+
   return (
     <main id="main">
       <AppRoute />

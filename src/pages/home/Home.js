@@ -13,18 +13,30 @@ import ShowText from '../../components/home/showcase'
 // redux actions
 import { getUser, getRoom, loadSettings } from '../../state/actions/settingsActions'
 
+import { joinRoom } from '../../state/actions/socketIO'
+
 import './home.scss'
 
 // eslint-disable-next-line no-shadow
-const Home = ({ getUser, getRoom, loadSettings }) => {
-  const [name, setName] = useState('')
+const Home = ({ joinRoom, getUser, getRoom, loadSettings }) => {
+  const [username, setusername] = useState('')
   const [room, setRoom] = useState('Engineering')
 
+  //  set username and room || load seetings from local storrage on page load
   useEffect(() => {
-    getUser(name)
+    getUser(username)
     getRoom(room)
     loadSettings()
-  }, [name, room])
+  }, [username, room])
+
+  //  handle to join chat
+  const handleSubmit = e => {
+    if (username === '') {
+      e.preventDefault()
+    } else {
+      joinRoom({ username, room })
+    }
+  }
   return (
     <>
       <div className="bg-container" />
@@ -36,9 +48,9 @@ const Home = ({ getUser, getRoom, loadSettings }) => {
           <FormTitle title="Join your coworkers now" />
           <UserNameInput
             onChange={e => {
-              setName(e.target.value)
+              setusername(e.target.value)
             }}
-            value={name}
+            value={username}
           />
           <RoomSelect
             onChange={e => {
@@ -46,28 +58,24 @@ const Home = ({ getUser, getRoom, loadSettings }) => {
             }}
             value={room}
           />
-          <Button
-            title="Join"
-            link="/chat"
-            onClick={
-              e => (room === '' || name === '' ? e.preventDefault() : null)
-              // eslint-disable-next-line react/jsx-curly-newline
-            }
-          />
+          <Button title="Join" link="/chat" onClick={handleSubmit} />
         </div>
       </section>
     </>
   )
 }
 
+//  proptypes
 Home.propTypes = {
   getUser: PropTypes.func.isRequired,
   getRoom: PropTypes.func.isRequired,
   loadSettings: PropTypes.func.isRequired,
+  joinRoom: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = {
   getUser,
+  joinRoom,
   getRoom,
   loadSettings,
 }

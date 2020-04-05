@@ -39,5 +39,9 @@
     .nav-item {
       padding: 1rem;
     }
+    .nav-item-unread {
+      padding: 1rem;
+      border-bottom: solid 0.5rem red;
+    }
   }
 }

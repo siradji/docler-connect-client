@@ -1,7 +1,7 @@
 @import '../../../template/layout.scss';
 
 .select {
-  color: inherit;
+  color: set-text-home(color(primary));
   background: color(primary);
   border: solid 0.1rem color(accent);
   border-radius: 2rem;

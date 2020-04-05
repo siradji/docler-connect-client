@@ -16,3 +16,6 @@ export const time12Hours = () => {
   const hour = hours % 12 || 12
   return `${hour}:${minutes}${antePost}`
 }
+
+//  helper function that check current location
+export const activepage = pathname => pathname === window.location.pathname

@@ -1,4 +1,12 @@
-import { SET_USER, SET_ROOM, ADD_MESSAGE, LEAVE_ROOM, GET_USERS } from '../types'
+import {
+  SET_USER,
+  NEW_MSG,
+  SET_ROOM,
+  ADD_MESSAGE,
+  LEAVE_ROOM,
+  GET_USERS,
+  READ_MSG,
+} from '../types'
 
 const initialState = {
   username: null,
@@ -6,6 +14,7 @@ const initialState = {
   messages: [],
   users: [],
   isLoggedIn: false,
+  newMsg: false,
 }
 
 export default (state = initialState, action) => {
@@ -37,6 +46,17 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: false,
+      }
+    case NEW_MSG:
+      return {
+        ...state,
+        newMsg: action.payload,
+      }
+
+    case READ_MSG:
+      return {
+        ...state,
+        newMsg: action.payload,
       }
     default:
       return state

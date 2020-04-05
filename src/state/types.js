@@ -8,6 +8,8 @@ export const GET_USERS = 'GET_USERS'
 export const LEAVE_ROOM = 'LEAVE_ROOM'
 export const ADD_MESSAGE = 'ADD_MESSAGE'
 export const SET_SETTINGS = 'SET_SETTINGS'
+export const NEW_MSG = 'NEW_MSG'
+export const READ_MSG = 'READ_MSG'
 
 // export const GET_USER = 'GET_USER'
 // export const GET_USER = 'GET_USER'

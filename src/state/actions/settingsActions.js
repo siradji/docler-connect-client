@@ -1,4 +1,11 @@
-import { SET_USER, SET_ROOM, SET_SETTINGS, LEAVE_ROOM } from '../types'
+import {
+  READ_MSG,
+  SET_USER,
+  SET_ROOM,
+  NEW_MSG,
+  SET_SETTINGS,
+  LEAVE_ROOM,
+} from '../types'
 import { getLocalStorageItems } from '../../utils/localStorage'
 
 //  set the username to null thus, logging iut
@@ -12,7 +19,17 @@ export const getUser = username => ({
   payload: username,
 })
 
-//  get room
+//  returns true if there is a new messag
+export const unReadMsg = () => ({
+  type: NEW_MSG,
+  payload: true,
+})
+export const readMsg = () => ({
+  type: READ_MSG,
+  payload: false,
+})
+
+//  Set choosen  room
 export const getRoom = room => ({
   type: SET_ROOM,
   payload: room,

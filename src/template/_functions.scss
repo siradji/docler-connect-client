@@ -2,3 +2,19 @@
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
+
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return color(primary); // Lighter backgorund, return dark color
+  } @else {
+    @return #ffffff; // Darker background, return light color
+  }
+}
+
+@function set-text-home($color) {
+  @if (lightness($color) > 50) {
+    @return color(accent); // Lighter backgorund, return dark color
+  } @else {
+    @return #ffffff; // Darker background, return light color
+  }
+}

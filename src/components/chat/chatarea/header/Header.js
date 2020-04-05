@@ -2,15 +2,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { disconnectChat } from '../../../../state/actions/socketIO'
-import { logOut } from '../../../../state/actions/settingsActions'
 import './style.scss'
 
 // eslint-disable-next-line no-shadow
-const Header = ({ roomName, chat: { users }, disconnectChat, logOut }) => {
+const Header = ({ roomName, chat: { users } }) => {
+  //  handle to disconnect from chat and logout
   const handledisconnectChat = () => {
-    disconnectChat()
-    logOut()
+    window.location.reload()
   }
   return (
     <div className="wrapper-header">
@@ -24,12 +22,8 @@ const Header = ({ roomName, chat: { users }, disconnectChat, logOut }) => {
 }
 Header.propTypes = {
   roomName: PropTypes.string.isRequired,
-  disconnectChat: PropTypes.func.isRequired,
-  logOut: PropTypes.func.isRequired,
   chat: PropTypes.shape({
-    users: PropTypes.shape({
-      username: PropTypes.string.isRequired,
-    }).isRequired,
+    users: PropTypes.array.isRequired,
   }).isRequired,
 }
 
@@ -37,9 +31,5 @@ const mapStateToProps = state => ({
   chat: state.chat,
 })
 
-const mapDispatchToProps = {
-  disconnectChat,
-  logOut,
-}
 const exports = React.memo(Header)
-export default connect(mapStateToProps, mapDispatchToProps)(exports)
+export default connect(mapStateToProps)(exports)

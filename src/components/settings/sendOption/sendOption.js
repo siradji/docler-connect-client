@@ -18,7 +18,7 @@ const SendOption = ({ loadSettings }) => {
     loadSettings()
   }, [state])
 
-  //  save send choice mode to local storage
+  //  save selected value to local storage
   const handleChange = e => {
     const value = e.target.id
     writeItem('sendWithCtrl', value)

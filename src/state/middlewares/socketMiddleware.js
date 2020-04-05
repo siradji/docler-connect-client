@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import io from 'socket.io-client'
 
 export default function socketMiddleware() {
@@ -15,13 +16,13 @@ export default function socketMiddleware() {
     }
 
     if (leave) {
-      socket.emit(event)
+      // socket.emit(event)
       socket.off()
+      return
     }
 
     if (emit) {
       socket.emit(event, payload)
-      // eslint-disable-next-line consistent-return
       return
     }
     let handleEvent = handle
