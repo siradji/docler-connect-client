@@ -22,6 +22,7 @@ const Sidepane = ({ messages, unReadMsg, readMsg, newMsg }) => {
       readMsg()
     }
   }, [messages.length])
+  const unreadCount = messages.length - ref.current
   return (
     <div className="wrapper-sidebar">
       <div className="inner-sidebar">
@@ -33,6 +34,7 @@ const Sidepane = ({ messages, unReadMsg, readMsg, newMsg }) => {
           to="/chat"
         >
           {chatIcon}
+          {newMsg && <span className="unreadCounter">{unreadCount}</span>}
         </NavLink>
         <NavLink
           className="nav-item"
