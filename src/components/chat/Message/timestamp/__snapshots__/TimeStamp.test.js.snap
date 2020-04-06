@@ -7,7 +7,7 @@ exports[`Renders Without Crashing 1`] = `
   <p
     className="msg-time"
   >
-    6:37
+    6:41
   </p>
 </div>
 `;
