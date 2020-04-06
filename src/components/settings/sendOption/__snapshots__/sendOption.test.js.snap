@@ -1,43 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`match snapshot 1`] = `
-<div
-  className="settings-items"
->
-  <p
-    className="settings-heading"
-  >
-    Send Message on Ctrl + enter
-  </p>
-  <div
-    className="inputGroup"
-  >
-    <input
-      id="on"
-      name="sendOption"
-      onChange={[Function]}
-      type="radio"
-    />
-    <label
-      htmlFor="on"
-    >
-      Yes
-    </label>
-  </div>
-  <div
-    className="inputGroup"
-  >
-    <input
-      id="off"
-      name="sendOption"
-      onChange={[Function]}
-      type="radio"
-    />
-    <label
-      htmlFor="off"
-    >
-      No
-    </label>
-  </div>
-</div>
+<SendOption
+  loadSettings={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
 `;

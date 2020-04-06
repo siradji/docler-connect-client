@@ -2,6 +2,12 @@
 
 exports[`Renders Without Crashing 1`] = `
 <div
-  className="wrapper-body"
-/>
+  className="msg-top"
+>
+  <p
+    className="msg-user"
+  >
+    username
+  </p>
+</div>
 `;
