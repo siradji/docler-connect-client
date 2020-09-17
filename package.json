@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "test": "jest",
     "deploy": "netlify deploy --dir=build --prod ",
-    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
@@ -30,7 +32,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "snyk": "^1.398.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -87,5 +90,6 @@
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
     }
-  }
+  },
+  "snyk": true
 }
