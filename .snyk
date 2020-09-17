@@ -1,0 +1,12 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - netlify-cli > @netlify/build > @netlify/functions-utils > @netlify/zip-it-and-ship-it > precinct > detective-typescript > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-09-17T17:01:49.109Z'
+    - netlify-cli > @netlify/build > @netlify/config > netlify > @netlify/zip-it-and-ship-it > precinct > detective-typescript > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-09-17T17:01:49.109Z'
+    - netlify-cli > netlify-redirect-parser > @netlify/config > netlify > @netlify/zip-it-and-ship-it > precinct > detective-typescript > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-09-17T17:01:49.109Z'
